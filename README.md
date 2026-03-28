@@ -16,19 +16,19 @@
 
 ### 🧠 Upload & Analyze Contracts
 
-![Upload UI](./assets/upload_ui.png)
+![Upload UI](./upload_ui.png)
 
 ---
 
 ### ⚡ Batch Processing in Action
 
-![Batch Processing](./assets/batch_processing.png)
+![Batch Processing](./batch_processing.png)
 
 ---
 
 ### 📊 Extracted Clauses & Risk Detection
 
-![Results](./assets/results.png)
+![Results](./results.png)
 
 ---
 
