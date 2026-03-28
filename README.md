@@ -24,7 +24,6 @@ Contract Viewer is designed to automate **legal contract analysis**, reducing ma
 * ⚡ Parallel processing for scalability
 ---
 
-🌐 UI Preview (assets/upload_ui.png)
 
 📤 Upload Interface
 
