@@ -1,197 +1,258 @@
-```text
-╔══════════════════════════════════════════════╗
-║      ⚖️ CONTRACT INTELLIGENCE ENGINE         ║
-║   AI-Powered Contract Analysis System       ║
-╚══════════════════════════════════════════════╝
-```
-
-# ⚖️ Contract Intelligence Engine
-
-> 🚀 Upload contracts → Extract clauses → Detect risks → Ask questions
-> ⚡ Typical processing time: **20–40 seconds**
+Good — this is solid. I’ll refine it into a **high-impact, recruiter-level README** (cleaner, sharper, and more technical than the reference repo ).
 
 ---
 
-## 🔥 Live Preview
+# ⚖️ Contract Viewer
 
-### 🧠 Upload & Analyze Contracts
+### Contract Analysis and In-Depth Intuition Engine
 
-![Upload UI](./assets/upload_ui.png)
+An AI-powered **Hybrid (ML + RAG)** system for analyzing, extracting, and comparing clauses across legal contracts using **Legal-BERT, FAISS retrieval, and QA models**.
 
----
-
-### ⚡ Batch Processing in Action
-
-![Batch Processing](./assets/batch_processing.png)
+Built for scalable, intelligent contract understanding using the **CUAD dataset**.
 
 ---
 
-### 📊 Extracted Clauses & Risk Detection
+## 🚀 Overview
 
-![Results](./assets/results.png)
+Contract Viewer is designed to automate **legal contract analysis**, reducing manual effort and improving accuracy through:
 
----
-
-## 🎯 Overview
-
-An **AI-powered contract intelligence system** that automates legal document understanding using a hybrid pipeline of:
-
-* 🤖 Machine Learning (Legal-BERT)
-* 📊 Rule-based extraction
-* ❓ Question Answering models
+* 📄 Clause extraction (rule-based + ML)
+* 🤖 Legal-BERT multi-label classification
+* ❓ Context-aware Question Answering (SQuAD BERT)
+* ⚠️ Risk scoring and analysis
+* 📊 Multi-contract comparison
+* ⚡ Parallel processing for scalability
 
 ---
 
-## 🧠 Key Features
+## 🧠 Architecture
 
-### 📄 Clause Extraction
-
-* Extracts **15+ clause types**
-* Identifies:
-
-  * Parties
-  * Governing Law
-  * Agreement Name
-
-### ⚠️ Risk Detection Engine
-
-* 🚨 HIGH RISK → Missing liability cap
-* ⚠️ MEDIUM RISK → Missing termination clause
-* 📉 COMPLIANCE → Missing governing law
-
-### ⚡ Performance Optimized
-
-* Fast chunking for large PDFs
-* Batch processing support
-* Optimized inference pipeline
-
----
-
-## ⚙️ Architecture
-
-```text
-PDF → Text Extraction → Chunking → 
-→ ML Models (Legal-BERT) 
-→ QA Engine → Rule Engine → Risk Engine → UI
+```id="arch-flow"
+User Contract(s)
+      │
+      ▼
+[Text Extraction + Preprocessing]
+      │
+      ▼
+[Smart Chunking]
+      │
+      ├───────────────┬─────────────────────┐
+      ▼               ▼                     ▼
+[FAISS Retrieval] [Legal-BERT Classifier] [Rule-Based Extraction]
+      │               │                     │
+      └───────────────┴──────────────┬──────┘
+                                     ▼
+                            [QA Model (SQuAD BERT)]
+                                     │
+                                     ▼
+                          [Risk Scoring Engine]
+                                     │
+                                     ▼
+                         [Multi-Contract Comparison]
+                                     │
+                                     ▼
+                             [Gradio UI Output]
 ```
 
 ---
 
-## 📂 Project Structure
+## 🔍 Core Features
 
-```bash
-Contract_viewer/
-│── assets/               # Screenshots
-│── models/               # Trained models
-│── scripts/              # Processing pipeline
-│── app.py                # Gradio UI
-│── requirements.txt
-│── README.md
-```
+### 1. Hybrid Clause Extraction
+
+* Combines:
+
+  * Rule-based logic (regex patterns)
+  * Legal-BERT classification
+* Ensures both **precision + contextual understanding**
 
 ---
 
-## ⚡ Setup Instructions
+### 2. FAISS-Based Retrieval
 
-### 1️⃣ Clone Repository
+* Enables fast semantic search across contract chunks
+* Supports:
 
-```bash
-git clone https://github.com/Ritviksingh-cyber/Contract_viewer.git
-cd Contract_viewer
-```
-
----
-
-### 2️⃣ Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
+  * Multi-document querying
+  * Context filtering before QA
 
 ---
 
-### 3️⃣ Run Application
+### 3. Question Answering Engine
 
-```bash
-python app.py
-```
+* Model: **SQuAD BERT**
+* Extracts answers directly from contract context
+* Works on:
 
----
-
-### 4️⃣ Open UI
-
-```
-http://localhost:7860
-```
+  * Single contract
+  * Multiple contracts
 
 ---
 
-## 🧪 How It Works
+### 4. Risk Scoring System
 
-| Step | Process                        |
-| ---- | ------------------------------ |
-| 1    | Upload contract PDFs           |
-| 2    | Extract text using PyMuPDF     |
-| 3    | Chunk document                 |
-| 4    | Run ML + rule-based extractors |
-| 5    | QA model extracts clauses      |
-| 6    | Risk engine evaluates          |
-| 7    | Results displayed in UI        |
+* Custom scoring logic based on:
+
+  * Missing clauses
+  * Risky terms
+* Produces:
+
+  * Structured risk output
+  * Comparable contract metrics
 
 ---
 
-## 📊 Example Output
+### 5. Multi-Contract Comparison
 
-* 📄 **Contract Name:** Data Processing Agreement
-* 👥 **Parties:** Automatically extracted
-* ⚖️ **Governing Law:** Identified or flagged
-* ⚠️ **Risks Detected:**
+* Compare multiple contracts simultaneously
+* Highlights:
 
-  * HIGH: No liability cap
-  * MEDIUM: Missing termination clause
+  * Clause differences
+  * Risk variations
+
+---
+
+### 6. Parallel Processing
+
+* Speeds up:
+
+  * Document ingestion
+  * Analysis pipeline
+* Uses concurrent execution for scalability
 
 ---
 
 ## 🛠️ Tech Stack
 
-* Python
-* PyTorch
-* HuggingFace Transformers
-* Gradio
-* PyMuPDF
+* **Python**
+* **PyTorch**
+* **HuggingFace Transformers**
+* **FAISS**
+* **Gradio**
+* **PyMuPDF (fitz)**
+* **Pandas**
 
 ---
 
-## 🚀 Future Improvements
+## 📊 Dataset
 
-* 🌍 Multi-language support
-* ☁️ Cloud deployment
-* 📊 Analytics dashboard
-* 🔍 Better clause detection
+* **CUAD v1 (Contract Understanding Atticus Dataset)**
+
+  * 510 commercial contracts
+  * 13,000+ labeled clauses
+  * 41 clause categories
+
+---
+
+## ⚙️ Models Used
+
+| Task               | Model                     |
+| ------------------ | ------------------------- |
+| Classification     | `legal-bert-base-uncased` |
+| Question Answering | SQuAD BERT                |
+| Retrieval          | FAISS (dense embeddings)  |
+
+---
+
+## ⚡ Key Design Decisions
+
+### 1. Hybrid ML + Retrieval Instead of Pure RAG
+
+Instead of relying only on retrieval, the system combines:
+
+* Legal-BERT → structured understanding
+* FAISS → fast semantic search
+* QA → precise extraction
+
+👉 This improves reliability in legal contexts where wording varies heavily.
+
+---
+
+### 2. Rule-Based + ML Combination
+
+Pure ML misses deterministic patterns like dates or parties.
+Rules ensure:
+
+* High precision for known structures
+* ML handles semantic complexity
+
+---
+
+### 3. Chunk-Based Processing
+
+Contracts are split into smaller chunks to:
+
+* Fit model constraints
+* Improve retrieval accuracy
+* Enable parallel execution
+
+---
+
+### 4. Custom Risk Scoring
+
+Instead of generic outputs:
+
+* Domain-inspired scoring logic is applied
+* Makes results actionable (not just descriptive)
+
+---
+
+## 🚧 Limitations
+
+* Long contracts may reduce QA accuracy due to context limits
+* Rule-based extraction may fail on uncommon phrings
+* Retrieval quality depends on chunking strategy
+* No persistent storage for uploaded contracts (session-based)
+
+---
+
+## 🔮 Future Improvements
+
+* Fine-tune domain-specific Legal LLM
+* Add explainable AI (XAI) for risk decisions
+* Deploy as API / SaaS platform
+* Improve long-document handling with better chunking
+
+---
+
+## ▶️ How to Run
+
+```bash
+pip install transformers torch faiss-cpu gradio pymupdf pandas
+```
+
+```bash
+# Run notebook or script
+jupyter notebook contract_viewer.ipynb
+```
+
+---
+
+## 🌐 UI
+
+* Interactive interface using **Gradio**
+* Upload contracts
+* Ask questions
+* Compare multiple documents
+* View risk scores
 
 ---
 
 ## 👨‍💻 Author
 
 **Ritvik Singh**
-AI/ML Engineer | NLP Enthusiast
+AI/ML Engineer
+
+🔗 LinkedIn: [https://www.linkedin.com/in/ritvik-singh-94581a204/](https://www.linkedin.com/in/ritvik-singh-94581a204/)
 
 ---
 
-## ⭐ Support
+## 🧠 Final Insight
 
-If you found this useful:
+This project focuses on **practical legal AI**, balancing:
 
-```bash
-⭐ Star this repo
-🍴 Fork it
-🚀 Build on top of it
-```
-
----
-
-## ⚠️ Disclaimer
-
-This tool assists in contract analysis but **does not replace legal advice**.
+* Speed (FAISS + parallelism)
+* Accuracy (Legal-BERT + QA)
+* Interpretability (risk scoring + rules)
 
 ---
